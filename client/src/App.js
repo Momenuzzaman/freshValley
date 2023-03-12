@@ -17,7 +17,7 @@ import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
 function App() {
   const router = createBrowserRouter([
     {
-      path: '/home', element: <Main></Main>,
+      path: '/', element: <Main></Main>,
       children: [
         { path: '/', element: <Shop></Shop> },
         { path: '/order', element: <CheckOut></CheckOut> }
