@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
 const AddProduct = () => {
     return (
-        <div className="h-full  bg-[#F4FCFB] ">
+        <div className="bg-[#F4FCFB] ">
             <div className="">
                 <p className="text-xl font-semibold bg-white py-5 pl-4">Add Product</p>
                 <div className=" sm:mt-0 grid place-items-center ">

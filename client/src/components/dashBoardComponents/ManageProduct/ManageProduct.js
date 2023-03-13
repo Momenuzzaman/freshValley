@@ -9,22 +9,22 @@ const ManageProduct = () => {
     ]
     return (
 
-        <div class="  sm:rounded-lg">
+        <div class=" sm:rounded-lg">
             <div>
                 <h1 className='py-10 pl-10 font-semibold text-3xl'>Manage Product</h1>
                 <table class="w-11/12  mx-auto text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-slate-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-5 py-3">
                                 Product name
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-5 py-3">
                                 Weight
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-5 py-3">
                                 Price
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-5 py-3">
                                 Action
                             </th>
                         </tr>
