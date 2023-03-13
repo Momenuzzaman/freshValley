@@ -24,16 +24,6 @@ export const Admin = () => {
                         FRESH  VALLEY
                     </h1>
                 </div>
-                {/* <ul class="pt-6 lg:block">
-                    {Menus.map((Menu, index) => (
-                        <li key={index} className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 lg:gap-x-0 lg:items-start">
-                            <span className={`${!open && "hidden"} lg:inline-block origin-left lg:duration-200 transition-all text-white`}><FontAwesomeIcon icon={Menu.src} /></span>
-                            <span className={`${!open && "hidden"} lg:inline-block origin-left lg:duration-200 transition-all`}>
-                                {Menu.title}
-                            </span>
-                        </li>
-                    ))}
-                </ul> */}
                 <ul>
                     <Link to="/admin">
                         <li className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 lg:gap-x-1 lg:items-start">
