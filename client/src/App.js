@@ -37,16 +37,6 @@ function App() {
   ]);
   return (
     <div className="App">
-      {/* <NavBar />
-      <SearchBar />
-      <Shop />
-      <Login />
-      <CreateAccounts />
-      <Admin />
-      <CheckOut /> */}
-      {/* <ManageProduct /> */}
-      {/* <CheckOut /> */}
-      {/* <AddProduct /> */}
       <RouterProvider router={router} />
     </div>
   );
