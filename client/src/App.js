@@ -20,7 +20,7 @@ function App() {
       path: "/",
       element: <Main></Main>,
       children: [
-        { path: "/home", element: <Shop></Shop> },
+        { path: "/", element: <Shop></Shop> },
         { path: "/order", element: <CheckOut></CheckOut> },
       ],
     },
@@ -37,16 +37,6 @@ function App() {
   ]);
   return (
     <div className="App">
-      {/* <NavBar />
-      <SearchBar />
-      <Shop />
-      <Login />
-      <CreateAccounts />
-      <Admin />
-      <CheckOut /> */}
-      {/* <ManageProduct /> */}
-      {/* <CheckOut /> */}
-      {/* <AddProduct /> */}
       <RouterProvider router={router} />
     </div>
   );
