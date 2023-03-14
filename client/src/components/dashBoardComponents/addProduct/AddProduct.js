@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from 'src/app/productSlice';
 const AddProduct = () => {
+    const [name, setName] = useState("");
+    const [weight, setWeight] = useState("");
+    const [price, setPrice] = useState(null);
+    const [imgUrl, setImgUrl] = useState("");
+
+
+    const numberOfProducts = useSelector((state) => state.productsReducer.products.length);
+    console.log(numberOfProducts);
+
+    const dispatch = useDispatch();
+    const handleAddProduct = (e) => {
+        e.preventDefault();
+        const product = { id: numberOfProducts + 1, name, weight, price }
+        dispatch(addProduct(product));
+    }
+
     return (
-        <div className="">
+        <div >
             <p className='pt-8 pl-10 font-semibold text-3xl'>Add Product</p>
-            <div className=" sm:mt-0 grid place-items-center ">
+            <div className="sm:mt-0 grid place-items-center ">
                 <div className="md:grid  md:gap-6 mt-10">
                     <div className="pt-5 md:col-span-2 md:mt-0">
-                        <form action="#" method="POST" className="w-full md:w-[800px] ">
+                        <form onSubmit={handleAddProduct} className="w-full md:w-[800px] ">
                             <div className=" shadow sm:rounded-md">
                                 <div className="bg-white px-4 py-5 sm:p-6">
                                     <div className="grid grid-cols-6 gap-6">
@@ -17,6 +35,8 @@ const AddProduct = () => {
                                                 Product Name
                                             </label>
                                             <input
+                                                value={name}
+                                                onChange={(e) => setName(e.target.value)}
                                                 type="text"
                                                 name="product-name"
                                                 id="product-name"
@@ -29,7 +49,9 @@ const AddProduct = () => {
                                                 Wight
                                             </label>
                                             <input
-                                                type="number"
+                                                value={weight}
+                                                onChange={(e) => setWeight(e.target.value)}
+                                                type="text"
                                                 name="wight"
                                                 id="wight"
                                                 autoComplete="family-name"
@@ -43,6 +65,8 @@ const AddProduct = () => {
                                                 Add Price
                                             </label>
                                             <input
+                                                value={price}
+                                                onChange={(e) => setPrice(e.target.value)}
                                                 type="number"
                                                 name="add-price"
                                                 id="add-price"
@@ -55,11 +79,11 @@ const AddProduct = () => {
                                                 <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
                                                     Add Photo
                                                 </label>
-                                                <div class="flex  items-center justify-center bg-grey-lighter md:mr-44 md:mt-2">
-                                                    <label class="w-[200px] h-[40px] flex flex-row items-center px-4  bg-[#DCFFEC] text-blue rounded-lg  tracking-wide  border  cursor-pointer hover:bg-blue hover:text-black">
+                                                <div className="flex  items-center justify-center bg-grey-lighter md:mr-44 md:mt-2">
+                                                    <label className="w-[200px] h-[40px] flex flex-row items-center px-4  bg-[#DCFFEC] text-blue rounded-lg  tracking-wide  border  cursor-pointer hover:bg-blue hover:text-black">
                                                         <span className="text-[#DCFFEC]">  <FontAwesomeIcon icon={faCloudArrowUp} /></span>
-                                                        <span class=" text-base leading-normal">Upload photo</span>
-                                                        <input id="image-upload" name="image-upload" type="file" className="sr-only" accept="image/*" />
+                                                        <span className=" text-base leading-normal">Upload photo</span>
+                                                        <input type="file" className="sr-only" accept="image/*" />
                                                     </label>
                                                 </div>
                                             </div>

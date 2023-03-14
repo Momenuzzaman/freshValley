@@ -74,8 +74,14 @@ export const productsSlice = createSlice({
     initialState,
     reducers: {
         showProducts: (state) => state,
+        addProduct: (state, action) => {
+            state.products.push(action.payload);
+        },
+        deleteProduct: (state, action) => {
+            state.products = state.products.filter((product) => product.id !== action.payload)
+        }
     }
 })
 
-export const { showProducts } = productsSlice.actions;
+export const { showProducts, addProduct, deleteProduct } = productsSlice.actions;
 export default productsSlice.reducer;
