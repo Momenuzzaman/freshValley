@@ -13,6 +13,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import Shop from "./components/Shop/Shop";
 import Main from "./Layout/Main";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import EditProduct from "./components/dashBoardComponents/EditProduct/EditProduct";
 
 function App() {
   const router = createBrowserRouter([
@@ -31,6 +32,7 @@ function App() {
       children: [
         { path: "/admin", element: <ManageProduct></ManageProduct> },
         { path: "/admin/addProduct", element: <AddProduct></AddProduct> },
+        { path: "/admin/editProduct", element: <EditProduct></EditProduct> }
       ],
     },
     { path: "/register", element: <CreateAccounts></CreateAccounts> },

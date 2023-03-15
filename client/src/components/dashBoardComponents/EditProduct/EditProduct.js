@@ -1,40 +1,29 @@
 import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch, useSelector } from 'react-redux';
-import { addProduct } from 'src/app/productSlice';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom'
+import { editProduct } from 'src/app/productSlice';
 
-const AddProduct = () => {
-    const [name, setName] = useState("");
-    const [weight, setWeight] = useState("");
-    const [price, setPrice] = useState("");
-    const [img, setImg] = useState("");
-
-
-    const numberOfProducts = useSelector((state) => state.productsReducer.products.length);
+const EditProduct = () => {
+    const location = useLocation();
+    const [id, setId] = useState(location.state.id);
+    const [name, setName] = useState(location.state.name)
+    const [weight, setWeight] = useState(location.state.weight);
+    const [price, setPrice] = useState(location.state.price);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    const handleImg = (e) => {
-        setImg(URL.createObjectURL(e.target.files[0]));
-    }
-
-    const handleAddProduct = (e) => {
+    const handleProductEdit = (e) => {
         e.preventDefault();
-        const product = { id: numberOfProducts + 1, name, weight, price, img };
-        dispatch(addProduct(product));
+        dispatch(editProduct({ id, name, weight, price }))
         navigate("/", { replace: true })
     }
-
     return (
         <div >
-            <p className='pt-8 pl-10 font-semibold text-3xl'>Add Product</p>
+            <p className='pt-8 pl-10 font-semibold text-3xl'>Edit Product</p>
             <div className="sm:mt-0 grid place-items-center ">
                 <div className="md:grid  md:gap-6 mt-10">
                     <div className="pt-5 md:col-span-2 md:mt-0">
-                        <form onSubmit={handleAddProduct} className="w-full md:w-[800px] ">
+                        <form onSubmit={handleProductEdit} className="w-full md:w-[800px] ">
                             <div className=" shadow sm:rounded-md">
                                 <div className="bg-white px-4 py-5 sm:p-6">
                                     <div className="grid grid-cols-6 gap-6">
@@ -82,20 +71,6 @@ const AddProduct = () => {
                                                 className="mt-2 block w-full rounded-md border-0 appearance-none py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-200 sm:text-sm sm:leading-6"
                                             />
                                         </div>
-                                        <div className="col-span-6 sm:col-span-3">
-                                            <div className="mb-1">
-                                                <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                                                    Add Photo
-                                                </label>
-                                                <div className="flex  items-center justify-center bg-grey-lighter md:mr-44 md:mt-2">
-                                                    <label className="w-[200px] h-[40px] flex flex-row items-center px-4  bg-[#DCFFEC] text-blue rounded-lg  tracking-wide  border  cursor-pointer hover:bg-blue hover:text-black">
-                                                        <span className="text-[#DCFFEC]">  <FontAwesomeIcon icon={faCloudArrowUp} /></span>
-                                                        <span className=" text-base leading-normal">Upload photo</span>
-                                                        <input type="file" onChange={handleImg} className="sr-only" accept="image/*" />
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div className=" px-4 py-3 text-right sm:px-6">
@@ -105,7 +80,6 @@ const AddProduct = () => {
                                     >
                                         Save
                                     </button>
-                                    {/* <img src={img} className="w-[100px] h-[100px]" /> */}
                                 </div>
                             </div>
                         </form>
@@ -116,4 +90,4 @@ const AddProduct = () => {
     )
 }
 
-export default AddProduct;
+export default EditProduct
