@@ -4,7 +4,7 @@ const initialState = {
     products: [
         {
             id: uudiv4(),
-            name: 'Marks Full Cream Milk Powder',
+            name: 'Marks Full Cream Milk',
             price: 234,
             img: 'https://res.cloudinary.com/sadagar/image/upload/v1624517133/products/7147/f670ba2f-739f-4bc0-9d37-f1dce25a74cf.jpg',
             weight: "500 gm"
@@ -73,7 +73,8 @@ export const productsSlice = createSlice({
     name: "products",
     initialState,
     reducers: {
-        // showProducts: (state) => state,
+
+        showProducts: (state) => state,
 
         addProduct: (state, action) => {
             state.products.push(action.payload);
@@ -88,7 +89,6 @@ export const productsSlice = createSlice({
                 isProductExist[0].weight = weight;
             }
         },
-
         deleteProduct: (state, action) => {
             state.products = state.products.filter((product) => product.id !== action.payload)
         }

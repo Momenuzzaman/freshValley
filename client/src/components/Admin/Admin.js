@@ -38,14 +38,6 @@ export const Admin = () => {
                             </span>
                         </li>
                     </Link>
-                    {/* <Link to="/admin/editProduct">
-                        <li className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 lg:gap-x-2 lg:items-start">
-                            <span className={`${!open && "hidden"} lg:inline-block origin-left lg:duration-200 transition-all text-white`}><FontAwesomeIcon icon={faPenToSquare} /></span>
-                            <span className={`${!open && "hidden"} lg:inline-block origin-left lg:duration-200 transition-all`}>
-                                <p>Edit Product</p>
-                            </span>
-                        </li>
-                    </Link> */}
                 </ul>
             </div>
             <div class="w-full h-full  lg:flex-1">

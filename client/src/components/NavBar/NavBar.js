@@ -42,7 +42,7 @@ const NavBar = () => {
 
 
         <nav className="w-full bg-white shadow">
-            <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+            <div className="justify-between  mx-auto md:items-center md:flex md:w-10/12">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <p className="text-2xl font-semibold">FRESH VA<span className="text-[#71BA58]">LL</span>EY</p>
