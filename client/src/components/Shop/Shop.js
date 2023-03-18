@@ -6,7 +6,6 @@ import SearchBar from '../SearchBar/SearchBar';
 
 const Shop = () => {
     const products = useSelector((state) => state.productsReducer.products);
-    console.log(products);
     return (
         <div>
             <SearchBar />

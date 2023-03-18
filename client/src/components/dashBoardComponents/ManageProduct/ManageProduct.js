@@ -37,8 +37,8 @@ const ManageProduct = () => {
                         {
                             products.map((product) => {
                                 const { id, name, weight, price } = product;
-                                return (<tr class="bg-white  dark:bg-gray-900 dark:border-gray-700">
-                                    <th scope="row" class="px-2 md:px-5 py-1 md:py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                return (<tr className="bg-white  dark:bg-gray-900 dark:border-gray-700">
+                                    <th scope="row" className="px-2 md:px-5 py-1 md:py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {name}
                                     </th>
                                     <td className="px-1 md:px-5 py-1 md:py-3">
@@ -54,11 +54,11 @@ const ManageProduct = () => {
                                                     <FontAwesomeIcon icon={faPenToSquare} />
                                                 </button>
                                             </Link>
-                                         </div>
+                                        </div>
                                         <div className='px-1 text-2xl'>
-                                             <button onClick={() => handleDeleteProduct(product.id)} className='text-red-600 '>
+                                            <button onClick={() => handleDeleteProduct(product.id)} className='text-red-600 '>
                                                 <FontAwesomeIcon icon={faTrash} />
-                                             </button>
+                                            </button>
                                         </div>
                                     </td>
                                 </tr>)

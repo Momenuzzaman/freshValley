@@ -1,13 +1,11 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from 'src/app/cartSlice';
 
 
 
 const ProductDetail = ({ product }) => {
     const { name, img, price, weight } = product;
-    // const cart = useSelector((state) => state.cartReducer.cart)
-    console.log(5 * '7');
     const dispatch = useDispatch();
     const productAddToCart = (product) => {
         dispatch(addToCart(product))

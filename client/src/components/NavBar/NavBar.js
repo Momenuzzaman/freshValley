@@ -4,12 +4,16 @@ import 'flowbite';
 import { AuthContext } from '../userContext.js/UserContext';
 
 const NavBar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
 
     const [navbar, setNavbar] = useState(false);
     const navigate = useNavigate();
     const loginButtonHandler = () => {
         navigate('/login');
+    };
+    const handleLogOutUser = () => {
+        logOut()
+
     };
     return (
         <nav className="w-full bg-white shadow">
@@ -68,13 +72,13 @@ const NavBar = () => {
                             <li>
                                 <NavLink to="/order" className="text-base block py-2 pl-3 pr-4 mr-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#71BA58] md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Orders</NavLink>
                             </li>
-                            <li>
+                            {user?.email === "admin@gmail.com" ? <li>
                                 <NavLink to="/admin" className="text-base block py-2 pl-3 pr-4 mr-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#71BA58] md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Admin</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="" href="#" className="text-base block py-2 pl-3 pr-4 mr-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#71BA58] md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Deals</NavLink>
-                            </li>
-                            <button type="button" onClick={loginButtonHandler} className="text-white bg-[#71BA58] hover:bg-lime-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3  ">Login</button>
+                            </li> : null}
+                            {!user?.email ?
+                                <button type="button" onClick={loginButtonHandler} className="text-white bg-[#71BA58] hover:bg-lime-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3  ">Login</button>
+                                : <button type="button" onClick={handleLogOutUser} className="text-white bg-[#71BA58] hover:bg-lime-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3  ">Log Out</button>
+                            }
                         </ul>
                     </div>
                 </div>

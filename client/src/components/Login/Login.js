@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 
 import google from "../../components/assets/img/Group 571.png"
@@ -10,12 +10,24 @@ import { AuthContext } from '../userContext.js/UserContext';
 
 
 const Login = () => {
+    const navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const { loginUser, loginWithGoogle } = useContext(AuthContext);
 
     // Login with Google
     const handleLoginWithGoogle = () => {
         loginWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.error('error', error);
+            });
+
     };
 
     // Login with Email Password
@@ -30,6 +42,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -117,7 +131,7 @@ const Login = () => {
                                         <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Login with Google</span>
                                     </button>
                                 </div>
-                                <div className="flex flex-row justify-evenly group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
+                                {/* <div className="flex flex-row justify-evenly group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
                                     hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
                                     <button
                                         id="button"
@@ -126,7 +140,7 @@ const Login = () => {
                                     >   <span className=" w-[30px] h-[30px]"><img src={facebook} /></span>
                                         <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Login with Facebook</span>
                                     </button>
-                                </div>
+                                </div> */}
                                 <Link to="/"
                                     className="inline-block  mb-3 text-sm font-bold b text-lime-500 align-baseline hover:text-green-600"
                                     href="#"

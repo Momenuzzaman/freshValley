@@ -6,9 +6,8 @@ import { Link, Outlet } from 'react-router-dom';
 
 
 export const Admin = () => {
-
-
     const [open, setOpen] = useState(false);
+
     return (
 
         <div className=" flex flex-col lg:flex-row w-full">
