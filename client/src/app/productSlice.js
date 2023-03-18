@@ -66,7 +66,6 @@ const initialState = {
             weight: "200 ml"
         }
     ],
-
 };
 
 export const productsSlice = createSlice({

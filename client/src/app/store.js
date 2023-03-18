@@ -1,5 +1,5 @@
 
-import cartReduce from "./productAddToCart";
+import cartReduce from "./cartSlice";
 import productsReduce from "./productSlice";
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faSquarePlus, } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { cartDeleteProduct, decreaseProduct, increaseProduct } from 'src/app/productAddToCart';
+import { cartDeleteProduct, decreaseProduct, increaseProduct } from 'src/app/cartSlice';
 
 const CheckOut = () => {
     const carts = useSelector((state) => state.cartReducer.cart);
@@ -26,53 +26,53 @@ const CheckOut = () => {
     }, 0)
 
     return (
-        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-            <div class="mx-auto max-w-3xl">
-                <header class="text-center">
-                    <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
+        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+            <div className="mx-auto max-w-3xl">
+                <header className="text-center">
+                    <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
                 </header>
 
-                <div class="mt-8">
+                <div className="mt-8">
                     {
-                        <ul class="space-y-4">
+                        <ul className="space-y-4">
                             {
                                 carts.map(product => {
                                     const { id, quantity, price, name } = product
                                     let productPrice = quantity * price
                                     return (
-                                        <li class="flex items-center gap-4">
+                                        <li className="flex items-center gap-4">
                                             <img
                                                 src={product.img}
                                                 alt=""
-                                                class="h-16 w-16 rounded object-cover"
+                                                className="h-16 w-16 rounded object-cover"
                                             />
                                             <div>
-                                                <h3 class="text-sm text-gray-900">{name}</h3>
+                                                <h3 className="text-sm text-gray-900">{name}</h3>
 
-                                                <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+                                                <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
                                                     <div>
-                                                        <dt class="inline">Price:</dt>
-                                                        <dd class="inline">{price}</dd>
+                                                        <dt className="inline">Price:</dt>
+                                                        <dd className="inline">{price}</dd>
                                                     </div>
                                                     <div>
-                                                        <dt class="inline">Total:</dt>
-                                                        <dd class="inline">{productPrice}</dd>
+                                                        <dt className="inline">Total:</dt>
+                                                        <dd className="inline">{productPrice}</dd>
                                                     </div>
                                                 </dl>
                                             </div>
-                                            <div class="flex flex-1 items-center justify-end gap-2">
-                                                <button onClick={() => handleDecreaseProduct(product)} class="text-gray-600 transition hover:text-orange-600"><FontAwesomeIcon icon={faMinus} /></button>
+                                            <div className="flex flex-1 items-center justify-end gap-2">
+                                                <button onClick={() => handleDecreaseProduct(product)} className="text-gray-600 transition hover:text-orange-600"><FontAwesomeIcon icon={faMinus} /></button>
                                                 <p className="h-8 w-12 rounded pt-2 border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 ">{product.quantity}</p>
-                                                <button onClick={() => handleIncreaseProduct(product)} class="text-gray-600 transition hover:text-green-600"><FontAwesomeIcon icon={faSquarePlus} /></button>
-                                                <button onClick={() => handleCartDeleteProduct(id)} class="text-gray-600 transition hover:text-red-600">
-                                                    <span class="sr-only">Remove item</span>
+                                                <button onClick={() => handleIncreaseProduct(product)} className="text-gray-600 transition hover:text-green-600"><FontAwesomeIcon icon={faSquarePlus} /></button>
+                                                <button onClick={() => handleCartDeleteProduct(id)} className="text-gray-600 transition hover:text-red-600">
+                                                    <span className="sr-only">Remove item</span>
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         fill="none"
                                                         viewBox="0 0 24 24"
                                                         stroke-width="1.5"
                                                         stroke="currentColor"
-                                                        class="h-4 w-4"
+                                                        className="h-4 w-4"
                                                     >
                                                         <path
                                                             stroke-linecap="round"
@@ -88,21 +88,21 @@ const CheckOut = () => {
                             }
                         </ul>
                     }
-                    <div class="mt-8 flex justify-end border-t border-gray-100 pt-8">
-                        <div class="w-screen max-w-lg space-y-4">
-                            <dl class="space-y-0.5 text-sm text-gray-700">
-                                <div class="flex justify-between !text-base font-medium">
+                    <div className="mt-8 flex justify-end border-t border-gray-100 pt-8">
+                        <div className="w-screen max-w-lg space-y-4">
+                            <dl className="space-y-0.5 text-sm text-gray-700">
+                                <div className="flex justify-between !text-base font-medium">
                                     <dt>Sub Total</dt>
                                     <dd>{total}</dd>
                                 </div>
                             </dl>
-                            <div class="flex justify-end">
-                                <a
-                                    href="#"
-                                    class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+                            <div className="flex justify-end">
+                                <button
+                                    
+                                    className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
                                 >
                                     Checkout
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
