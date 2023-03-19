@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { faArrowDown, faPenToSquare, faPlus, faTable, } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown,  faPlus, faTable, } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'flowbite';
 import { Link, Outlet } from 'react-router-dom';
 
 
 export const Admin = () => {
-
-
     const [open, setOpen] = useState(false);
+
     return (
 
         <div className=" flex flex-col lg:flex-row w-full">

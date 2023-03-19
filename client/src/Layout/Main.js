@@ -5,7 +5,9 @@ import { Outlet } from 'react-router-dom';
 const main = () => {
     return (
         <div>
-            <NavBar />
+            <div className="sticky top-0">
+                <NavBar />
+            </div>
             <Outlet />
         </div>
     )

@@ -1,7 +1,5 @@
 import "./App.css";
-
 import "flowbite";
-import Home from "src/components/Home";
 import Login from "./components/Login/Login";
 import CreateAccounts from "./components/CreateAccount/CreateAccounts";
 import { Admin } from "./components/Admin/Admin";
@@ -14,6 +12,10 @@ import Shop from "./components/Shop/Shop";
 import Main from "./Layout/Main";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EditProduct from "./components/dashBoardComponents/EditProduct/EditProduct";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
+import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +24,7 @@ function App() {
       element: <Main></Main>,
       children: [
         { path: "/", element: <Shop></Shop> },
-        { path: "/order", element: <CheckOut></CheckOut> },
+        { path: "/order", element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute> },
       ],
     },
     { path: "/login", element: <Login></Login> },
@@ -36,9 +38,11 @@ function App() {
       ],
     },
     { path: "/register", element: <CreateAccounts></CreateAccounts> },
+    { path: "*", element: <PageNotFound></PageNotFound> }
   ]);
   return (
     <div className="App">
+      <ToastContainer />
       <RouterProvider router={router} />
     </div>
   );

@@ -1,12 +1,12 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from 'src/app/productAddToCart';
+import { useDispatch } from 'react-redux';
+import { addToCart } from 'src/app/cartSlice';
+import SearchBar from '../SearchBar/SearchBar';
 
 
 
 const ProductDetail = ({ product }) => {
     const { name, img, price, weight } = product;
-    const cart = useSelector((state) => state.cartReducer.cart)
     const dispatch = useDispatch();
     const productAddToCart = (product) => {
         dispatch(addToCart(product))

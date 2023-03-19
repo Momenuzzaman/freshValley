@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const { v4: uudiv4 } = require("uuid")
+const { v4: uudiv4 } = require("uuid");
 const initialState = {
     products: [
         {
@@ -66,7 +66,6 @@ const initialState = {
             weight: "200 ml"
         }
     ],
-
 };
 
 export const productsSlice = createSlice({
