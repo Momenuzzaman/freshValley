@@ -1,5 +1,4 @@
 import "./App.css";
-
 import "flowbite";
 import Login from "./components/Login/Login";
 import CreateAccounts from "./components/CreateAccount/CreateAccounts";
@@ -15,6 +14,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EditProduct from "./components/dashBoardComponents/EditProduct/EditProduct";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +42,7 @@ function App() {
   ]);
   return (
     <div className="App">
+      <ToastContainer />
       <RouterProvider router={router} />
     </div>
   );

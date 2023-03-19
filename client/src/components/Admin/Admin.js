@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { faArrowDown, faPenToSquare, faPlus, faTable, } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown,  faPlus, faTable, } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'flowbite';
 import { Link, Outlet } from 'react-router-dom';

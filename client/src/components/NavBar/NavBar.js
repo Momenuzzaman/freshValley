@@ -2,11 +2,21 @@ import React, { useContext, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
 import 'flowbite';
 import { AuthContext } from '../userContext.js/UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
-
     const [navbar, setNavbar] = useState(false);
+    const carts = useSelector((state) => state.cartReducer.cart);
+
+    // calculate total Quantity
+    const totalProductQuantity = carts.reduce((total, product) => {
+        return total += product.quantity
+    }, 0);
+
+
     const navigate = useNavigate();
     const loginButtonHandler = () => {
         navigate('/login');
@@ -16,12 +26,15 @@ const NavBar = () => {
 
     };
     return (
-        <nav className="w-full bg-white shadow">
-            <div className="justify-between  mx-auto md:items-center md:flex md:w-10/12">
+        <nav className=" bg-white shadow">
+            <div className="  justify-between  mx-auto md:items-center md:flex md:w-10/12">
                 <div>
-                    <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <p className="text-2xl font-semibold">FRESH VA<span className="text-[#71BA58]">LL</span>EY</p>
-                        {user?.email && <span>Welcome {user.email}</span>}
+                    <div className=" flex items-center justify-between py-3 md:py-5 md:block">
+                        <div className="flex justify-between">
+                            <p className="text-2xl font-semibold">FRESH VA<span className="text-[#71BA58]">LL</span>EY</p>
+                            {/* {user?.email && <span>Welcome {user.email}</span>} */}
+                            {totalProductQuantity ? <p className="text-lg font-semibold pl-2 m-[4px]  md:pl-0"><span className="text-[#71BA58] "><FontAwesomeIcon icon={faCartPlus} /></span>{totalProductQuantity}</p> : null}</div>
+
                         <div className="md:hidden">
                             <button
                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"

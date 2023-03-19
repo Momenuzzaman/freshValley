@@ -4,6 +4,7 @@ import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from 'src/app/productSlice';
 import { useNavigate } from 'react-router-dom';
+const { v4: uudiv4 } = require("uuid");
 
 const AddProduct = () => {
     const [name, setName] = useState("");
@@ -23,7 +24,7 @@ const AddProduct = () => {
 
     const handleAddProduct = (e) => {
         e.preventDefault();
-        const product = { id: numberOfProducts + 1, name, weight, price, img };
+        const product = { id: uudiv4, name, weight, price, img };
         dispatch(addProduct(product));
         navigate("/", { replace: true })
     }
@@ -105,7 +106,6 @@ const AddProduct = () => {
                                     >
                                         Save
                                     </button>
-                                    {/* <img src={img} className="w-[100px] h-[100px]" /> */}
                                 </div>
                             </div>
                         </form>

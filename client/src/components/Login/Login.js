@@ -1,13 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-
-
 import google from "../../components/assets/img/Group 571.png"
-import facebook from "../../components/assets/img/fb_icon_325x325.png"
 import { AuthContext } from '../userContext.js/UserContext';
-
-
-
 
 const Login = () => {
     const navigate = useNavigate();
@@ -51,7 +45,7 @@ const Login = () => {
     }
     return (
         <div>
-            {/* <button onClick={handleLoginWithGoogle} className="bg-black">Emon</button> */}
+
             <div className="flex items-center  justify-center  min-h-screen bg-gray-100 p-0 sm:p-12 ">
                 <div className="mx-auto w-4/5  md:h-full max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
                     <h1 className="text-2xl font-bold mb-8">Login</h1>
@@ -131,16 +125,6 @@ const Login = () => {
                                         <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Login with Google</span>
                                     </button>
                                 </div>
-                                {/* <div className="flex flex-row justify-evenly group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
-                                    hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-                                    <button
-                                        id="button"
-                                        type="button"
-                                        className="relative flex items-center space-x-4 justify-center"
-                                    >   <span className=" w-[30px] h-[30px]"><img src={facebook} /></span>
-                                        <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Login with Facebook</span>
-                                    </button>
-                                </div> */}
                                 <Link to="/"
                                     className="inline-block  mb-3 text-sm font-bold b text-lime-500 align-baseline hover:text-green-600"
                                     href="#"
